@@ -1,6 +1,6 @@
 {
 	"name": "zapfilter",
-	"version": "1.1.6",
+	"version": "1.1.7",
 	"description": "A simple opinionated library to help you apply multiple filters on JSON data. Lightweight and easy to use!",
 	"main": "./index.js",
 	"entrypoint": "index.js",
