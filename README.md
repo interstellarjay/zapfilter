@@ -184,7 +184,7 @@ Filter everything EXACTLY equal to `"PlayStation"` from the `brand` key of every
 
 ```javascript
 {
-	filter: zf.filterGreaterThan,
+	filter: zf.filterEqualTo,
 	onProperty: "brand",
 	condition: "PlayStation"
 }
@@ -211,7 +211,7 @@ Filter everything not equal to `"God of War"` from the `title` key of every obje
 
 ```javascript
 {
-	filter: zf.filterGreaterThan,
+	filter: zf.filterNotEqualTo,
 	onProperty: "title",
 	condition: "God of War"
 }
@@ -223,7 +223,7 @@ Filter everything before `October 5th 2019` from the `launchdate` key of every o
 
 ```javascript
 {
-	filter: zf.filterGreaterThan,
+	filter: zf.filterBeforeDate,
 	onProperty: "launchdate",
 	condition: "2019-10-05",
 }
@@ -235,7 +235,7 @@ Filter everything after `June 25th 2020` from the `bookingdate` key of every obj
 
 ```javascript
 {
-	filter: zf.filterGreaterThan,
+	filter: zf.filterAfterDate,
 	onProperty: "bookingdate",
 	condition: "2020-06-25"
 }
@@ -247,7 +247,7 @@ Filter everything equal to `February 28th 2020` from the `departuredate` key of 
 
 ```javascript
 {
-	filter: zf.filterGreaterThan,
+	filter: zf.filterEqualToDate,
 	onProperty: "departuredate",
 	condition: "2020-02-18",
 }
@@ -259,7 +259,7 @@ Filter everything not equal to `March 3rd 2020` from the `returndate` key of eve
 
 ```javascript
 {
-	filter: zf.filterGreaterThan,
+	filter: zf.filterNotEqualToDate,
 	onProperty: "returndate",
 	condition: "2020-03-01"
 }
