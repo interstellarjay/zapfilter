@@ -34,8 +34,7 @@
 	],
 	"author": "Jay Bedeau",
 	"license": "MIT",
-	"devDependencies": {
-		"chalk": "^2.4.2"
-	},
-	"homepage": "https://github.com/interstellarjay/zapfilter.git"
+	"devDependencies": {},
+	"homepage": "https://github.com/interstellarjay/zapfilter.git",
+	"dependencies": {}
 }
