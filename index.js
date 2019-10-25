@@ -1,4 +1,3 @@
-const chalk = require("chalk");
 class zapfilter {
 	constructor(dataSet, filters) {
 		this.filters = filters || [];
@@ -28,7 +27,7 @@ class zapfilter {
 	filter(dataSet) {
 		// Missing data set
 		if (!dataSet) {
-			throw new Error(chalk.yellow("ZapFilter error ===> No data set supplied!"));
+			throw new Error("ZapFilter error ===> No data set supplied!");
 		}
 		// Filter the data
 		let filterLength = this.filters.length - 1;
