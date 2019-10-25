@@ -178,7 +178,7 @@ Filter everything `> 20` from the `likes` key of every object in the JSON.
 ```
 ---
 ### zf.filterEqualTo `Number, String, Boolean`
-##### :warning: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
+##### :hand: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
 
 Filter everything EXACTLY equal to `"PlayStation"` from the `brand` key of every object in the JSON.
 
@@ -192,7 +192,7 @@ Filter everything EXACTLY equal to `"PlayStation"` from the `brand` key of every
 ---
 
 ### zf.filterPartialMatch `String` 
-##### :warning: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
+##### :hand: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
 Filter everything which partially contains the specified string specified.
 
 ```javascript
@@ -205,7 +205,7 @@ Filter everything which partially contains the specified string specified.
 
 ---
 ### zf.filterNotEqualTo `Number, String, Boolean`
-##### :warning: By default `"-"`, and `"_"`, and `" "` are escaped from strings.
+##### :hand: By default `"-"`, and `"_"`, and `" "` are escaped from strings.
 
 Filter everything not equal to `"God of War"` from the `title` key of every object in the JSON.
 
