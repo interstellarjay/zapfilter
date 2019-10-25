@@ -1,13 +1,12 @@
 {
 	"name": "zapfilter",
-	"version": "1.1.3",
+	"version": "1.1.4",
 	"description": "A simple opinionated library to help you apply multiple filters on JSON data. Lightweight and easy to use!",
 	"main": "./index.js",
 	"entrypoint": "index.js",
 	"public": true,
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"push": "npm publish --access public"
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
 		"type": "git",
