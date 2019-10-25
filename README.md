@@ -249,13 +249,13 @@ Filter everything equal to `February 28th 2020` from the `departuredate` key of 
 {
 	filter: zf.filterEqualToDate,
 	onProperty: "departuredate",
-	condition: "2020-02-18",
+	condition: "2020-02-28",
 }
 ```
 ---
 ### zf.filterNotEqualToDate `String` as `"YYYY-MM-DD"`
 
-Filter everything not equal to `March 3rd 2020` from the `returndate` key of every object in the JSON.
+Filter everything not equal to `March 1st 2020` from the `returndate` key of every object in the JSON.
 
 ```javascript
 {
