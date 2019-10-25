@@ -30,7 +30,6 @@ class zapfilter {
 			throw new Error("ZapFilter error ===> No data set supplied!");
 		}
 		// Filter the data
-		let filterLength = this.filters.length - 1;
 		this.filteredSet = dataSet;
 		// Filter the result
 		for (var i = 0; i < this.filters.length; i++) {
@@ -46,18 +45,26 @@ class zapfilter {
 		return data.filter((item) => item[property] > value);
 	}
 	filterEqualTo(data, property, value) {
-		return data.filter(
-			(item) =>
-				item[property].toUpperCase().replace(/\s|\_|\-/g, "") ===
-				value.toUpperCase().replace(/\s|\_|\-/g, "")
-		);
+		return data.filter((item) => {
+			if (typeof item === "string") {
+				return (
+					item[property].toUpperCase().replace(/\s|\_|\-/g, "") ===
+					value.toUpperCase().replace(/\s|\_|\-/g, "")
+				);
+			}
+			return item[property] === value;
+		});
 	}
 	filterNotEqualTo(data, property, value) {
-		return data.filter(
-			(item) =>
-				item[property].toUpperCase().replace(/\s|\_|\-/g, "") !==
-				value.toUpperCase().replace(/\s|\_|\-/g, "")
-		);
+		return data.filter((item) => {
+			if (typeof item === "string") {
+				return (
+					item[property].toUpperCase().replace(/\s|\_|\-/g, "") !==
+					value.toUpperCase().replace(/\s|\_|\-/g, "")
+				);
+			}
+			return item[property] !== value;
+		});
 	}
 	filterBeforeDate(data, property, value) {
 		const conditionDate = new Date(value);
