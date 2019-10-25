@@ -1,0 +1,37 @@
+{
+	"name": "zapfilter",
+	"version": "1.1.2",
+	"description": "A simple opinionated library to help you apply multiple filters on JSON data. Lightweight and easy to use!",
+	"main": "./index.js",
+	"entrypoint": "index.js",
+	"public": true,
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/interstellarjay/zapfilter.git"
+	},
+	"bugs": {
+		"uri": "https://github.com/interstellarjay/zapfilter/issues"
+	},
+	"keywords": [
+		"filter",
+		"combined filters",
+		"multi-filter",
+		"filtering",
+		"zapfilter",
+		"complex filters",
+		"product filters",
+		"filtration",
+		"json filter",
+		"sort",
+		"mulitple filters"
+	],
+	"author": "Jay Bedeau",
+	"license": "MIT",
+	"devDependencies": {
+		"chalk": "^2.4.2"
+	},
+	"homepage": "https://github.com/interstellarjay/zapfilter.git"
+}
