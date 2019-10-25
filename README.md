@@ -94,8 +94,7 @@ zf.clearFilters();
 
 ---
 
-<h1>zapfilter API</h1>
-<h2>zapfilter core API</h2>
+<h1>:zap: zapfilter API</h1>
 
 ### Creating filters
 
