@@ -46,7 +46,7 @@ class zapfilter {
 	}
 	filterEqualTo(data, property, value) {
 		return data.filter((item) => {
-			if (typeof item === "string") {
+			if (typeof item[property] === "string") {
 				return (
 					item[property].toUpperCase().replace(/\s|\_|\-/g, "") ===
 					value.toUpperCase().replace(/\s|\_|\-/g, "")
@@ -57,7 +57,7 @@ class zapfilter {
 	}
 	filterPartialMatch(data, property, value) {
 		return data.filter((item) => {
-			if (typeof item !== "string") {
+			if (typeof item[property] !== "string") {
 				throw new Error(
 					"ZapFilter error ===> filterPartialMatch function must validate string value!"
 				);
@@ -69,7 +69,7 @@ class zapfilter {
 	}
 	filterNotEqualTo(data, property, value) {
 		return data.filter((item) => {
-			if (typeof item === "string") {
+			if (typeof item[property] === "string") {
 				return (
 					item[property].toUpperCase().replace(/\s|\_|\-/g, "") !==
 					value.toUpperCase().replace(/\s|\_|\-/g, "")
