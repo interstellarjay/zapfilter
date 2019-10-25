@@ -25,17 +25,17 @@ class zapfilter {
 		return (x = this.applySingleFilter(x, f));
 	}
 	filter(dataSet) {
-		// Missing data set
+		//Missing data set
 		if (!dataSet) {
 			throw new Error("ZapFilter error ===> No data set supplied!");
 		}
-		// Filter the data
+		//Filter the data
 		this.filteredSet = dataSet;
-		// Filter the result
+		//Filter the result
 		for (var i = 0; i < this.filters.length; i++) {
 			this.filteredSet = this.applyZapFilters(this.filteredSet, this.filters[i]);
 		}
-		// Return the response
+		//Return the response
 		return this.filteredSet;
 	}
 	filterLessThan(data, property, value) {
@@ -53,6 +53,18 @@ class zapfilter {
 				);
 			}
 			return item[property] === value;
+		});
+	}
+	filterPartialMatch(data, property, value) {
+		return data.filter((item) => {
+			if (typeof item !== "string") {
+				throw new Error(
+					"ZapFilter error ===> filterPartialMatch function must validate string value!"
+				);
+			}
+			//Parse value to uppercase and remove spaces, dashes and underscores.
+			let v = value.toUpperCase().replace(/\s|\_|\-/g, "");
+			return /${v}/.test(item[property].toUpperCase().replace(/\s|\_|\-/g, ""));
 		});
 	}
 	filterNotEqualTo(data, property, value) {

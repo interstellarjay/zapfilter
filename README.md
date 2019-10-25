@@ -152,6 +152,7 @@ Filters the JSON with every filter from the `zf.applyFilters(filters)` function.
 
 zapfilter comes with helper filter functions for testing against numbers, strings and booleans.
 
+
 ### zf.filterLessThan `Number`
 
 Filter everything `< 70` from the `weightKG` key of every object in the JSON.
@@ -177,9 +178,9 @@ Filter everything `> 20` from the `likes` key of every object in the JSON.
 ```
 ---
 ### zf.filterEqualTo `Number, String, Boolean`
-##### :warning: By default `"-"`, and `"_"`, and `" "` are escaped from strings.
+##### :warning: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
 
-Filter everything equal to `"PlayStation"` from the `brand` key of every object in the JSON.
+Filter everything EXACTLY equal to `"PlayStation"` from the `brand` key of every object in the JSON.
 
 ```javascript
 {
@@ -188,6 +189,20 @@ Filter everything equal to `"PlayStation"` from the `brand` key of every object 
 	condition: "PlayStation"
 }
 ```
+---
+
+### zf.filterPartialMatch `String` 
+##### :warning: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
+Filter everything which partially contains the specified string specified.
+
+```javascript
+{
+	filter: zf.filterPartialMatch,
+	onProperty: "brand",
+	condition: "play"
+}
+```
+
 ---
 ### zf.filterNotEqualTo `Number, String, Boolean`
 ##### :warning: By default `"-"`, and `"_"`, and `" "` are escaped from strings.
