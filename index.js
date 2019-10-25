@@ -64,8 +64,8 @@ class zapfilter {
 			}
 			//Parse value to uppercase and remove spaces, dashes and underscores.
 			let v = value.toUpperCase().replace(/\s|\_|\-/g, "");
-			console.log("test", /${v}/.test(item[property].toUpperCase().replace(/\s|\_|\-/g, "")));
-			return /${v}/.test(item[property].toUpperCase().replace(/\s|\_|\-/g, ""));
+			console.log("test", /${v}/g.test(item[property].toUpperCase().replace(/\s|\_|\-/g, "")));
+			return /${v}/g.test(item[property].toUpperCase().replace(/\s|\_|\-/g, ""));
 		});
 	}
 	filterNotEqualTo(data, property, value) {
