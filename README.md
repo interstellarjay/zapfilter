@@ -62,12 +62,12 @@ List your filters as shown below, <a href="#helperFuncs">you can use the preset 
 let filters = [
 	{
 		filter: zf.filterLessThan,
-		onProperty: "age"
+		onProperty: "age",
 		condition: 6,
 	},
 	{
 		filter: zf.filterGreaterThan,
-		onProperty: "age"
+		onProperty: "age",
 		condition: 2,
 	}
 ];
