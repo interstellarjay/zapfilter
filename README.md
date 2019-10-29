@@ -20,20 +20,20 @@ Written with love in JS by @interstellarjay.
 
 ## How do I use zapfilter?
 
-Install the module from `npm`
+**1** Install the module from `npm`
 
 ```bash
 npm i zapfilter
 ```
 
-Create a new zapfilter instance
+**2** Create a new zapfilter instance
 
 ```javascript
 const zapfilter = require("zapfilter"); // import zapfilter from "zapfilter"
 const zf = new zapfilter();
 ```
 
-Fetch your JSON data
+**3** Fetch your JSON data
 
 ```javascript
 const dataSet = [
@@ -58,7 +58,7 @@ const dataSet = [
 ];
 ```
 
-List your filters as shown below, <a href="#helperFuncs">you can use the preset filters in zapfilter</a> or write your own filter functions. Don't use parentheses `()`.
+**4** List your filters as shown below, <a href="#helperFuncs">you can use the preset filters in zapfilter</a> or write your own filter functions. Don't use parentheses `()`.
 
 ```javascript
 /**
@@ -81,56 +81,25 @@ let filters = [
 ];
 ```
 
-Apply the filters
+**5** Apply the filters
 
 ```javascript
 zf.applyFilters(filters);
 ```
 
-Filter the JSON data with the applied filters
+**6** Then filter the result, using either of the following: 
 
-### v1.2.5+ `zf.filter(data)` Logical AND (the results must fulfil all filter criteria)
-```javascript
-const result = zf.filter(dataSet);
-console.log(result); 
-// [
-//	{
-// 		name: "PS4® Pro",
-// 		price: 319.99,
-// 		currency: "EUR",
-// 		age: 3
-// }
-// ]
-```
++ :a: <a href="#zfAND">zf.filter(data)</a>
+  + The result is only the data that fulfils **all** the filter criteria.
++ :ab: <a href="#zfOR">zf.filterOR(data)</a>
+  + The result is only the data that fulfils **any** the filter criteria.
+<br />
 
-### v.1.2.5+ `zf.filterOR(data)` Logical OR (the results can match any filter criteria)
-```javascript
-const result = zf.filterOR(dataSet);
-console.log(result); 
-// [
-//	{
-// 		name: "PS4® Pro",
-// 		price: 319.99,
-// 		currency: "EUR",
-// 		age: 3
-// }
-//	{
-//		name: "Nintendo® Switch",
-//		price: 289.99,
-//		currency: "EUR",
-//		age: 2
-//	},
-// ]
-
-```
-
-
-Clear the filters when you no longer need them.
+**7** Finally, clear the filters when you no longer need them.
 
 ```javascript
 zf.clearFilters();
 ```
-
 
 ---
 
@@ -180,14 +149,14 @@ Removes all the applied filters, your data will now be unfiltered.
 
 ---
 
-### zf.filterOR `(JSON)` :ab:
+<h3 id="zfOR">zf.filterOR `(JSON)` :ab:</h3>
 :hand: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical OR filtering.</a>
 
 Filters the JSON and returns results if **any** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
 
 ---
 
-### zf.filter `(JSON)` :a: :b:
+<h3 id="zfAND"> zf.filter `(JSON)` :a:</h3>
 :hand: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical AND filtering.</a>
 
 Filters the JSON and returns results when **ALL** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
