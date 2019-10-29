@@ -17,6 +17,8 @@ class zapfilter {
 		return;
 	}
 	clearFilters() {
+		this.filterORBuffer = [];
+		this.filteredSet = [];
 		return (this.filters = []);
 	}
 	applySingleFilter(x, f) {
