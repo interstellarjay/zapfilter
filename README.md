@@ -181,7 +181,7 @@ Removes all the applied filters, your data will now be unfiltered.
 ---
 
 ### zf.filterOR `(JSON)` :ab:
- <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical OR filtering.</a>
+:hand: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical OR filtering.</a>
 
 Filters the JSON and returns results if **any** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
 
@@ -309,6 +309,50 @@ Filter everything not equal to `March 1st 2020` from the `returndate` key of eve
 	onProperty: "returndate",
 	condition: "2020-03-01"
 }
+```
+---
+
+## Other functions 
+### zf.removeDuplicates `JSON`
+
+Manually removes any duplicated objects in an array of objects. Does not require any filtering to be applied. 
+:hand: The function `zf.filterOR` does this automatically.
+
+```javascript
+const exampleDataSet = [
+	{
+		name: "Nintendo® Switch",
+		price: 289.99,
+		currency: "EUR",
+		age: 2
+	},
+	{
+		name: "Nintendo® Switch",
+		price: 289.99,
+		currency: "EUR",
+		age: 2
+	},
+		name: "PS4® Pro",
+		price: 319.99,
+		currency: "EUR",
+		age: 3
+	}
+];
+const result = zf.removeDuplicates(dataSet);
+console.log(result);
+// [
+// 	{
+// 		name: "Nintendo® Switch",
+// 		price: 289.99,
+// 		currency: "EUR",
+// 		age: 2
+// 	},
+// 		name: "PS4® Pro",
+// 		price: 319.99,
+// 		currency: "EUR",
+// 		age: 3
+// 	}
+// ]
 ```
 ---
 

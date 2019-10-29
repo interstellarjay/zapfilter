@@ -119,5 +119,9 @@ class zapfilter {
 		const conditionDate = new Date(value);
 		return data.filter(item => new Date(item[property]) !== conditionDate);
 	}
+	removeDuplicates(dataSet) {
+		const flatData = dataSet.flat();
+		return this.combineResultsAndRemoveDuplicates(flatData);
+	}
 }
 module.exports = zapfilter;
