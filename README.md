@@ -89,27 +89,31 @@ zf.applyFilters(filters);
 
 Filter the JSON data with the applied filters
 
-### v1.2.5+ `.filter(data)` Logical AND (the results must fulfil all filter criteria)
+### v1.2.5+ `zf.filter(data)` Logical AND (the results must fulfil all filter criteria)
 ```javascript
 const result = zf.filter(dataSet);
 console.log(result); 
 // [
-//	{ 
-//		name: "PS4® Pro", 
-//		age: 3 
-//	}
+//	{
+// 		name: "PS4® Pro",
+// 		price: 319.99,
+// 		currency: "EUR",
+// 		age: 3
+// }
 // ]
 ```
 
-### v.1.2.5+ `filterOR(data)` Logical OR (the results can match any filter criteria)
+### v.1.2.5+ `zf.filterOR(data)` Logical OR (the results can match any filter criteria)
 ```javascript
 const result = zf.filterOR(dataSet);
 console.log(result); 
 // [
-//	{ 
-//		name: "PS4® Pro", 
-//		age: 3 
-//	}
+//	{
+// 		name: "PS4® Pro",
+// 		price: 319.99,
+// 		currency: "EUR",
+// 		age: 3
+// }
 //	{
 //		name: "Nintendo® Switch",
 //		price: 289.99,
@@ -181,15 +185,12 @@ Removes all the applied filters, your data will now be unfiltered.
 
 Filters the JSON and returns results if **any** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
 
-`zf.filterOR(JSON)`
 ---
 
 ### zf.filter `(JSON)` :a: :b:
 :hand: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical AND filtering.</a>
 
 Filters the JSON and returns results when **ALL** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
-
-`zf.filter(JSON)`
 
 ---
 
