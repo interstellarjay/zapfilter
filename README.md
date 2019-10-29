@@ -5,13 +5,15 @@ This project was previously found at @interstellarjay/multifilter.
 
 This is a open-source, free, library to apply multiple filters on JSON data. The library is designed to be <em>lightweight</em>, <em>extensible</em> and <em>easy to use</em>. 
 
+From version `1.2.5` you can filter by either AND and OR.
+
 You can use this library to filter on combinations of:
 + Dates
 + Strings
 + Numbers
 + Booleans
 
-Written with love in JS by @interstellarjay.
+Written with love in JS by @interstellarjay. 
 
 
 ---
@@ -21,13 +23,13 @@ Written with love in JS by @interstellarjay.
 Install the module from `npm`
 
 ```bash
-npm i -S zapfilter@latest
+npm i zapfilter
 ```
 
 Create a new zapfilter instance
 
 ```javascript
-const zapfilter = require("zapfilter");
+const zapfilter = require("zapfilter"); // import zapfilter from "zapfilter"
 const zf = new zapfilter();
 ```
 
@@ -37,14 +39,20 @@ Fetch your JSON data
 const dataSet = [
 	{
 		name: "Nintendo® Switch",
+		price: 289.99,
+		currency: "EUR",
 		age: 2
 	},
 	{
 		name: "PlayStation® 4",
+		price: 229.99
+		currency: "EUR",
 		age: 6
 	},
 	{
 		name: "PS4® Pro",
+		price: 319.99,
+		currency: "EUR",
 		age: 3
 	}
 ];
@@ -61,14 +69,14 @@ List your filters as shown below, <a href="#helperFuncs">you can use the preset 
  **/
 let filters = [
 	{
-		filter: zf.filterLessThan,
+		filter: zf.filterEqualTo,
 		onProperty: "age",
-		condition: 6,
+		condition: 3,
 	},
 	{
 		filter: zf.filterGreaterThan,
-		onProperty: "age",
-		condition: 2,
+		onProperty: "price",
+		condition: 250.00,
 	}
 ];
 ```
@@ -81,16 +89,44 @@ zf.applyFilters(filters);
 
 Filter the JSON data with the applied filters
 
+### v1.2.5+ `.filter(data)` Logical AND (the results must fulfil all filter criteria)
 ```javascript
 const result = zf.filter(dataSet);
-console.log(result); // [{ name: "PS4® Pro", age: 3 }]
+console.log(result); 
+// [
+//	{ 
+//		name: "PS4® Pro", 
+//		age: 3 
+//	}
+// ]
 ```
+
+### v.1.2.5+ `filterOR(data)` Logical OR (the results can match any filter criteria)
+```javascript
+const result = zf.filterOR(dataSet);
+console.log(result); 
+// [
+//	{ 
+//		name: "PS4® Pro", 
+//		age: 3 
+//	}
+//	{
+//		name: "Nintendo® Switch",
+//		price: 289.99,
+//		currency: "EUR",
+//		age: 2
+//	},
+// ]
+
+```
+
 
 Clear the filters when you no longer need them.
 
 ```javascript
 zf.clearFilters();
 ```
+
 
 ---
 
@@ -140,8 +176,18 @@ Removes all the applied filters, your data will now be unfiltered.
 
 ---
 
-### zf.filter `(JSON)`
-Filters the JSON with every filter from the `zf.applyFilters(filters)` function. Returns JSON of filtered data.
+### zf.filterOR `(JSON)` :ab:
+ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical OR filtering.</a>
+
+Filters the JSON and returns results if **any** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
+
+`zf.filterOR(JSON)`
+---
+
+### zf.filter `(JSON)` :a: :b:
+:hand: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical AND filtering.</a>
+
+Filters the JSON and returns results when **ALL** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
 
 `zf.filter(JSON)`
 
