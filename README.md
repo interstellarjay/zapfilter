@@ -176,7 +176,7 @@ Filter everything `< 70` from the `weightKG` key of every object in the JSON.
 {
 	filter: zf.filterLessThan,
 	onProperty: "weightKG",
-	condition: 100
+	condition: 70
 }
 ```
 ---
