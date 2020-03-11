@@ -1,11 +1,6 @@
 # :zap: zapfilter 
-This project was previously found at @interstellarjay/multifilter.
-
-## What is zapfilter?
-
-This is a open-source, free, library to apply multiple filters on JSON data. The library is designed to be <em>lightweight</em>, <em>extensible</em> and <em>easy to use</em>. 
-
-From version `1.2.5` you can filter by either AND and OR.
+## Batch filter large data sets.
+Code by @interstellarjay
 
 You can use this library to filter on combinations of:
 + Dates
@@ -13,8 +8,10 @@ You can use this library to filter on combinations of:
 + Numbers
 + Booleans
 
-Written with love in JS by @interstellarjay. 
-
+Why use Zapfilter?
++ < 50KB.
++ No dependencies.
++ Open source.
 
 ---
 
@@ -36,7 +33,7 @@ const zf = new zapfilter();
 **3** Fetch your JSON data
 
 ```javascript
-const dataSet = [
+const data = [
 	{
 		name: "Nintendo® Switch",
 		price: 289.99,
@@ -55,287 +52,86 @@ const dataSet = [
 		currency: "EUR",
 		age: 3
 	}
-];
+]
 ```
 
-**4** List your filters as shown below, <a href="#helperFuncs">you can use the preset filters in zapfilter</a> or write your own filter functions. Don't use parentheses `()`.
+**4** Filter
+Filters must be written in the format:
++ filter `filterfunction`,
++ onProperty: `name of key in data object `,
++ value: `the value you want to check against`
 
-```javascript
-/**
- *	Store your conditions in an array of objects like this..
- *	-> filter takes a function (see zapfilter helper functions)
- *	-> onProperty is the key in the object to use to validate.
- *	-> condition is the value that to use to validate.
- **/
-let filters = [
+```
+const filters = [
 	{
 		filter: zf.filterEqualTo,
 		onProperty: "age",
-		condition: 3,
+		value: 3,
 	},
 	{
 		filter: zf.filterGreaterThan,
 		onProperty: "price",
-		condition: 250.00,
+		value: 250.00,
 	}
 ];
-```
-
-**5** Apply the filters
-
-```javascript
-zf.applyFilters(filters);
-```
-
-**6** Then filter the result, using either of the following: 
-
-+ :a: <a href="#zfAND">zf.filter(data)</a>
-  + The result is only the data that fulfils **all** the filter criteria.
-+ :ab: <a href="#zfOR">zf.filterOR(data)</a>
-  + The result is only the data that fulfils **any** the filter criteria.
-<br />
-
-**7** Finally, clear the filters when you no longer need them.
-
-```javascript
+zf.setFilters(filters);
+zf.filter(data);
 zf.clearFilters();
 ```
 
----
 
-<h1>:zap: zapfilter API</h1>
+## API - core functions
+:hand: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
 
-### Creating filters
-
-In zapfilter each filter is written in the following format.
-
-```javascript
-{
-	filter: FILTER_FUNCTION,
-	onProperty: KEY_IN_EACH_OBJECT,
-	condition: VALIDATE_AGAINST_THIS_VALUE
-}
-```
-
-Then store all the filters you would like to apply in an array.
-```javascript
-let filters = [
-	{
-		filter: zf.filterLessThan,
-		onProperty: "age"
-		condition: 6,
-	},
-	{
-		filter: zf.filterGreaterThan,
-		onProperty: "age"
-		condition: 2,
-	}
-];
-```
-
----
-
-### zf.applyFilters `(Array of filters)`
+`zf.setFilters(filters)`
 Registers all the filters to be used before the data is filtered.
 
-`zf.applyFilters(filters)`
-
----
-
-### zf.clearFilters `()`
+`zf.clearFilters()`
 Removes all the applied filters, your data will now be unfiltered.
 
-`zf.clearFilters()`
+`zf.filter()`
+Filters the data if any conditions match
 
----
+`zf.removeDuplicates` 
+Manually remove any duplicated objects in the result.
 
-<h3 id="zfOR">zf.filterOR `(JSON)` :ab:</h3>
-:hand: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical OR filtering.</a>
+## API - prebuilt filter methods
 
-Filters the JSON and returns results if **any** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
+`zf.filterLessThan`
+Filter everything less than a the number specified
 
----
+`zf.filterGreaterThan`
+Filter everything greater than the specified number
 
-<h3 id="zfAND"> zf.filter `(JSON)` :a:</h3>
-:hand: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators/#Description">Logical AND filtering.</a>
+`zf.filterEqualTo` 
+Filter everything EXACTLY equal to the specified `number`, `boolean`, or `string`.
 
-Filters the JSON and returns results when **ALL** of the filter criteria are true after calling `zf.applyFilters(filters)` function. Returns JSON of filtered data.
-
----
-
-<h2 id="helperFuncs">zapfilter functions API</h2>
-
-zapfilter comes with helper filter functions for testing against numbers, strings and booleans.
-
-
-### zf.filterLessThan `Number`
-
-Filter everything `< 70` from the `weightKG` key of every object in the JSON.
-
-```javascript
-{
-	filter: zf.filterLessThan,
-	onProperty: "weightKG",
-	condition: 70
-}
-```
----
-### zf.filterGreaterThan `Number`
-
-Filter everything `> 20` from the `likes` key of every object in the JSON.
-
-```javascript
-{
-	filter: zf.filterGreaterThan,
-	onProperty: "likes",
-	condition: 20
-}
-```
----
-### zf.filterEqualTo `Number, String, Boolean`
-##### :hand: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
-
-Filter everything EXACTLY equal to `"PlayStation"` from the `brand` key of every object in the JSON.
-
-```javascript
-{
-	filter: zf.filterEqualTo,
-	onProperty: "brand",
-	condition: "PlayStation"
-}
-```
----
-
-### zf.filterPartialMatch `String` 
-##### :hand: By default `"-"`, and `"_"`, and `" "` are escaped from strings. And matches are case insensitive.
+`zf.filterPartialMatch` 
 Filter everything which partially contains the specified string specified.
 
-```javascript
-{
-	filter: zf.filterPartialMatch,
-	onProperty: "brand",
-	condition: "play"
-}
-```
+`zf.filterNotEqualTo`
+Filter everything NOT equal to the specified `number`, `boolean`, or `string`.
 
----
-### zf.filterNotEqualTo `Number, String, Boolean`
-##### :hand: By default `"-"`, and `"_"`, and `" "` are escaped from strings.
+`zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`)
+Filter everything before the specified date
 
-Filter everything not equal to `"God of War"` from the `title` key of every object in the JSON.
+`zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`)
+Filter everything after the specified date
 
-```javascript
-{
-	filter: zf.filterNotEqualTo,
-	onProperty: "title",
-	condition: "God of War"
-}
-```
----
-### zf.filterBeforeDate `String` as `"YYYY-MM-DD"`
+`zf.filterEqualToDate` (Dates written in the format `"YYYY-MM-DD"`)
+Filter everything equal to the specified date
 
-Filter everything before `October 5th 2019` from the `launchdate` key of every object in the JSON.
+`zf.filterNotEqualToDate` (Dates written in the format `"YYYY-MM-DD"`)
+Filter everything not equal to the specified date
 
-```javascript
-{
-	filter: zf.filterBeforeDate,
-	onProperty: "launchdate",
-	condition: "2019-10-05",
-}
-```
----
-### zf.filterAfterDate `String` as `"YYYY-MM-DD"`
-
-Filter everything after `June 25th 2020` from the `bookingdate` key of every object in the JSON.
-
-```javascript
-{
-	filter: zf.filterAfterDate,
-	onProperty: "bookingdate",
-	condition: "2020-06-25"
-}
-```
----
-### zf.filterEqualToDate `String` as `"YYYY-MM-DD"`
-
-Filter everything equal to `February 28th 2020` from the `departuredate` key of every object in the JSON.
-
-```javascript
-{
-	filter: zf.filterEqualToDate,
-	onProperty: "departuredate",
-	condition: "2020-02-28",
-}
-```
----
-### zf.filterNotEqualToDate `String` as `"YYYY-MM-DD"`
-
-Filter everything not equal to `March 1st 2020` from the `returndate` key of every object in the JSON.
-
-```javascript
-{
-	filter: zf.filterNotEqualToDate,
-	onProperty: "returndate",
-	condition: "2020-03-01"
-}
-```
----
-
-## Other functions 
-### zf.removeDuplicates `JSON`
-
-Manually removes any duplicated objects in an array of objects. Does not require any filtering to be applied. 
-:hand: The function `zf.filterOR` does this automatically.
-
-```javascript
-const exampleDataSet = [
-	{
-		name: "Nintendo® Switch",
-		price: 289.99,
-		currency: "EUR",
-		age: 2
-	},
-	{
-		name: "Nintendo® Switch",
-		price: 289.99,
-		currency: "EUR",
-		age: 2
-	},
-		name: "PS4® Pro",
-		price: 319.99,
-		currency: "EUR",
-		age: 3
-	}
-];
-const result = zf.removeDuplicates(dataSet);
-console.log(result);
-// [
-// 	{
-// 		name: "Nintendo® Switch",
-// 		price: 289.99,
-// 		currency: "EUR",
-// 		age: 2
-// 	},
-// 		name: "PS4® Pro",
-// 		price: 319.99,
-// 		currency: "EUR",
-// 		age: 3
-// 	}
-// ]
-```
----
 
 ## Where would I use this?
 Filter your data set by name, release date, rating, color, price, age, condition... anything you like!
 
----
-
 ## Why create zapfilter?
 zapfilter was created because I felt like the process of applying multiple filters on JSON needed to be simpler.
 
----
-
 ## Enjoying zapfilter?
-If you're enjoying zapfilter and would like to support the project, please consider becoming a contributor.
+If you're enjoying zapfilter and would like to support the project, please consider sponsoring the package.
 
 ---
