@@ -12,6 +12,7 @@ Why use Zapfilter?
 + < 50KB.
 + No dependencies.
 + Open source.
++ 100% extensible, use your own filter functions.
 
 ---
 
