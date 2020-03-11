@@ -1,6 +1,6 @@
 # :zap: zapfilter 
 ## Batch filter large data sets.
-Code by @interstellarjay
+Code by [https://github.com/interstellarjay/](@interstellarjay)
 
 You can use this library to filter on combinations of:
 + Dates
