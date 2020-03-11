@@ -98,7 +98,7 @@ zf.clearFilters();
 
 ---
 
-## API - prebuilt filter methods
+## API - prebuilt filtering functions
 
 `zf.filterLessThan`
 - Filter everything less than the specified number.
