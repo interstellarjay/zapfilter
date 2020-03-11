@@ -1,19 +1,41 @@
 /*
-    ZapFilter powerful filtering and sorting tools
-    ===============================================
+    ZapFilter powerful filtering and sorting tools < 50KB with zero dependencies.
+    NPM package by @interstellarjay
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    HOW TO USE: 
     
+    // Create new instance
     const zf = new ZapFilter()
+    
+    // Get some data
     const dataToFilter = [
         { name: 'Audi Etron', preowned: 'no', price: '52999' },
         { name: 'Tesla Model S (2015)', preowned: 'yes',price: '39995' },
         { name: 'BMW i8', preowned: 'no', preowned: '35120' },
     ]
+    
+    // Make some filters using the preset zf functions
     const filters = [ 
-        { filter:  zf.filterEqualTo, onProperty: 'preowned',  condition: 'no' },
-        { filter:  zf.filterLessThan, onProperty: 'price',  condition: '32999' },
+      { 
+        filter:  zf.filterEqualTo, 
+        onProperty: 'preowned',  
+        value: 'no' 
+      },
+      { 
+        filter:  zf.filterLessThan, 
+        onProperty: 'price',  
+        value: '32999' 
+      },
     ]
+    
+    // Set the filters
     zf.setFilters(filters)
+    
+    // Filter the data (default is set to either or)
     zf.filter(dataToFilter)
+    
+    // Clear the filters
     zf.clearFilters()
 */
 
@@ -44,7 +66,7 @@ class ZapFilter {
     }
   
     applySingleFilter(x, f) {
-      return f.filter(x, f.onProperty, f.condition)
+      return f.filter(x, f.onProperty, f.value)
     }
   
     applyZapFilters(x, f) {
@@ -65,7 +87,7 @@ class ZapFilter {
       return isolateUniquesFlat
     }
   
-    filterXOR(dataSet) {
+    filterAND(dataSet) {
       // Missing data set
       if (!dataSet) {
         throw new Error('ZapFilter error ===> No data set supplied!')
@@ -176,3 +198,4 @@ class ZapFilter {
   }
   
   module.exports = ZapFilter
+  
