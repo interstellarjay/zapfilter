@@ -61,7 +61,7 @@ Filters must be written in the format:
 + onProperty: `name of key in data object `,
 + value: `the value you want to check against`
 
-```
+```javascript
 const filters = [
 	{
 		filter: zf.filterEqualTo,
@@ -90,7 +90,7 @@ zf.clearFilters();
 - Removes all the applied filters, your data will now be unfiltered.
 
 `zf.filter()`
-- Filters the data if any conditions match
+- Filters the data if any conditions match.
 
 `zf.removeDuplicates` 
 - Manually remove any duplicated objects in the result.
@@ -100,10 +100,10 @@ zf.clearFilters();
 ## API - prebuilt filter methods
 
 `zf.filterLessThan`
-- Filter everything less than a the number specified
+- Filter everything less than the specified number.
 
 `zf.filterGreaterThan`
-- Filter everything greater than the specified number
+- Filter everything greater than the specified number.
 
 `zf.filterEqualTo` 
 - Filter everything EXACTLY equal to the specified `number`, `boolean`, or `string`.
@@ -114,16 +114,16 @@ zf.clearFilters();
 `zf.filterNotEqualTo`
 - Filter everything NOT equal to the specified `number`, `boolean`, or `string`.
 
-`zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`)
+`zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`).
 - Filter everything before the specified date
 
-`zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`)
+`zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`).
 - Filter everything after the specified date
 
-`zf.filterEqualToDate` (Dates written in the format `"YYYY-MM-DD"`)
+`zf.filterEqualToDate` (Dates written in the format `"YYYY-MM-DD"`).
 - Filter everything equal to the specified date
 
-`zf.filterNotEqualToDate` (Dates written in the format `"YYYY-MM-DD"`)
+`zf.filterNotEqualToDate` (Dates written in the format `"YYYY-MM-DD"`).
 - Filter everything not equal to the specified date
 
 ---
