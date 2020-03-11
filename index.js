@@ -6,7 +6,7 @@
     HOW TO USE: 
     
     // Create new instance
-    const zf = new ZapFilter()
+    const zf = new zapfilter()
     
     // Get some data
     const dataToFilter = [
@@ -40,7 +40,7 @@
 */
 
 
-class ZapFilter {
+class zapfilter {
     constructor(dataSet, filters) {
       this.filters = filters || []
       this.filteredSet = dataSet || []
@@ -197,5 +197,5 @@ class ZapFilter {
     }
   }
   
-  module.exports = ZapFilter
+  module.exports = zapfilter
   
