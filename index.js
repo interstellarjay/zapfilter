@@ -99,7 +99,6 @@ class ZapFilter {
       const results = this.combineResultsAndRemoveDuplicates(
         flattenedResultsWithPotentialDuplicates
       )
-      console.log('@@@@', results)
       return results
     }
   
