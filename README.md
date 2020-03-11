@@ -86,14 +86,14 @@ zf.clearFilters();
 `zf.setFilters(filters)`
 - Registers all the filters to be used before the data is filtered.
 
-`zf.clearFilters()`
-- Removes all the applied filters, your data will now be unfiltered.
-
 `zf.filter()`
 - Filters the data if any conditions match.
 
 `zf.removeDuplicates` 
 - Manually remove any duplicated objects in the result.
+
+`zf.clearFilters()`
+- Removes all the applied filters, your data will now be unfiltered.
 
 ---
 
