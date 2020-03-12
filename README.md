@@ -3,9 +3,9 @@
 Code by [@interstellarjay](https://github.com/interstellarjay/) :heart:
 
 Why use Zapfilter?
-+ < 50KB
-+ No dependencies.
-+ Open source.
++ It's tiny < 20KB !
++ No dependencies!
++ Open source!
 + Easily apply multiple filters - works with any JS framework.
 + Prebuilt date, number, string and boolean filter functions.
 + 100% extensible (create your own filter functions).
