@@ -10,9 +10,9 @@
     
     // Get some data
     const dataToFilter = [
-        { name: 'Audi Etron', preowned: 'no', price: '52999' },
-        { name: 'Tesla Model S (2015)', preowned: 'yes',price: '39995' },
-        { name: 'BMW i8', preowned: 'no', preowned: '35120' },
+        { name: 'Audi Etron', preowned: 'no', price: 52999 },
+        { name: 'Tesla Model S (2015)', preowned: 'yes',price: 39995 },
+        { name: 'BMW i8', preowned: 'no', price: 35120 },
     ]
     
     // Make some filters using the preset zf functions
