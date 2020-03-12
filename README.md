@@ -1,18 +1,14 @@
 # :zap: zapfilter 
-## Batch filter large data sets.
+## Batch filter JSON data.
 Code by [@interstellarjay](https://github.com/interstellarjay/) :heart:
 
-You can use this library to filter on combinations of:
-+ Dates
-+ Strings
-+ Numbers
-+ Booleans
-
 Why use Zapfilter?
-+ < 50KB.
++ < 50KB
 + No dependencies.
 + Open source.
-+ 100% extensible, use your own filter functions.
++ Easily apply multiple filters - works with any JS framework.
++ Prebuilt date, number, string and boolean filter functions.
++ 100% extensible (create your own filter functions).
 
 ---
 
