@@ -114,7 +114,7 @@ zf.clearFilters();
 `zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`).
 - Filter everything before the specified date
 
-`zf.filterBeforeDate` (Dates written in the format `"YYYY-MM-DD"`).
+`zf.filterAfterDate` (Dates written in the format `"YYYY-MM-DD"`).
 - Filter everything after the specified date
 
 `zf.filterEqualToDate` (Dates written in the format `"YYYY-MM-DD"`).
