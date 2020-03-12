@@ -1,5 +1,5 @@
 /*
-    ZapFilter powerful filtering and sorting tools < 50KB with zero dependencies.
+    ZapFilter powerful filtering and sorting tools < 20KB with zero dependencies.
     NPM package by @interstellarjay
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
