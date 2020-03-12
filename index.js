@@ -25,7 +25,7 @@
       { 
         filter:  zf.filterLessThan, 
         onProperty: 'price',  
-        value: '32999' 
+        value: 32999
       },
     ]
     
