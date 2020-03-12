@@ -3,8 +3,8 @@
 Code by [@interstellarjay](https://github.com/interstellarjay/) :heart:
 
 Why use Zapfilter?
-+ It's tiny < 20KB !
-+ No dependencies!
++ It's tiny < 20KB
++ No dependencies
 + Open source!
 + Easily apply multiple filters - works with any JS framework.
 + Prebuilt date, number, string and boolean filter functions.

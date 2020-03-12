@@ -1,6 +1,6 @@
 {
 	"name": "zapfilter",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"description": "A tiny library to help you batch filter JSON data. Lightweight and easy to use!",
 	"main": "./index.js",
 	"entrypoint": "index.js",
